@@ -24,7 +24,7 @@ function LandingPage() {
             </div>
           );
         })}
-        <div className="border-t-[1px] border-zinc-800 mt-32 flex justify-between items-center py-5 px-20">
+        <div className="border-t-[1px] border-zinc-800 mt-32 flex flex-wrap justify-between gap-3 items-center py-5 px-7 md:px-20">
           {[
             "For Public and Private Companies",
             "From the first pitch to IPO",
@@ -34,10 +34,10 @@ function LandingPage() {
             </p>
           ))}
           <div className="start flex items-center gap-5">
-            <div className="px-4 py-2 border-[1px] border-solid border-zinc-400 rounded-full uppercase font-md text-sm">
+            <div className="w-full px-2 md:px-4 py-2 border-[1px] border-solid border-zinc-400 rounded-full uppercase font-md text-sm">
               Start the Project
             </div>
-            <div className="w-10 h-10 flex items-center justify-center border-[1px] border-solid border-zinc-400 rounded-full">
+            <div className="w-8 h-8 p-2 md:w-10 md:h-10 flex items-center justify-center border-[1px] border-solid border-zinc-400 rounded-full">
               <span className="rotate-[45deg]">
                 <FaArrowUpLong />
               </span>
