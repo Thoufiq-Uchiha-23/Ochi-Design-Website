@@ -14,7 +14,7 @@ function About() {
             </button>
           </div>
           <div className='w-full md:w-1/2 h-[60vh] rounded-3xl mt-10 relative'>
-            <img src="src/images/About Image.jpg" className='rounded-3xl'/>
+            <img src="https://ochi.design/wp-content/uploads/2022/05/Homepage-Photo-663x469.jpg" className='rounded-3xl'/>
           </div>
         </div>
     </div>
