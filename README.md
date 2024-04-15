@@ -24,7 +24,7 @@ Here's the Live site 👇
 ## Installation
 
 ```
-cd Nike
+cd ochi
 npm install
 npm run dev
 ```
