@@ -4,7 +4,7 @@ import { FaArrowUpLong } from "react-icons/fa6";
 
 function LandingPage() {
   return (
-    <div data-scroll data-scroll-section data-scroll-speed="-.3" className="w-full h-screen bg-black pt-1">
+    <div id="services" data-scroll data-scroll-section data-scroll-speed="-.3" className="w-full h-screen bg-black pt-1">
       <div className="textstructure mt-40 px-20">
         {["We Create", "Eye Opening", "Presentations"].map((item, index) => {
           return (
