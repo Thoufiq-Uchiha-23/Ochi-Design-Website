@@ -89,7 +89,7 @@ function Navbar() {
           ></path>
         </svg>
       </div>
-      <div className="links flex gap-10 flex-wrap">
+      <div className="links flex gap-10 flex-wrap lg:hidden">
         {header.map((item, index) => (
           <a
             key={item.id}
