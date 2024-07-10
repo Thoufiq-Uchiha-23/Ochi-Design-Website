@@ -2,7 +2,7 @@ import React from 'react'
 
 function Cards() {
   return (
-    <div className='w-full flex flex-wrap lg:flex-nowrap gap-5 items-center px-[50px] bg-zinc-900'>
+    <div id='insights' className='w-full flex flex-wrap lg:flex-nowrap gap-5 items-center px-[50px] bg-zinc-900'>
         <div className='cardcontainer w-full lg:w-1/2 h-[30vh] lg:h-[50vh]'>
             <div className='card relative flex items-center justify-center rounded-xl w-full h-full bg-[#004D43]'>
                 <img className='w-25 md:w-32' src="https://ochi.design/wp-content/uploads/2022/04/logo001.svg" alt="" />
