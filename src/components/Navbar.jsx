@@ -13,7 +13,7 @@ function Navbar() {
   {
     /* Menu Button */
   }
-  <div className="fixed top-[20%] inset-y-0 right-[5%] z-[999] lg:hidden">
+  <div className="fixed top-[20%] inset-y-0 right-[5%] z-[100] lg:hidden">
     <button
       onClick={toggleMenu}
       type="button"
@@ -58,7 +58,7 @@ function Navbar() {
     </button>
   </div>;
   return (
-    <div className='fixed backdrop-blur-lg hover:backdrop-blur-xl z-[999] w-full px-20 py-8 gap-10 font-["Neue Montreal"] flex justify-between items-center'>
+    <div className='fixed backdrop-blur-lg hover:backdrop-blur-xl z-[999] w-full px-10 lg:px-20 py-8 gap-10 font-["Neue Montreal"] flex justify-between items-center'>
       <div className="logo">
         <svg
           width="72"
@@ -89,7 +89,7 @@ function Navbar() {
           ></path>
         </svg>
       </div>
-      <div className="links flex gap-10 flex-wrap lg:hidden">
+      <div className="links md:flex gap-10 flex-wrap hidden">
         {header.map((item, index) => (
           <a
             key={item.id}
@@ -99,6 +99,20 @@ function Navbar() {
             } capitalize font-light ${
               index === 4 && "ml-25"
             }`}
+          >
+            {item.title}
+          </a>
+        ))}
+      </div>
+      <div className="bg-orange-400/90 w-full min-h-screen absolute top-0 left-0 -z-[999] flex flex-col py-10 hidden justify-evenly items-center gap-5 font-semibold lg:font-lg backdrop-blur-xl text-3xl lg:text-xl tracking-widest">
+        {header.map((item) => (
+          <a
+          id="menuItemsBar"
+            key={item.id}
+            href={item.url}
+            className={`${
+              item.title == pathname.hash ? "z-2 text-purple-500" : "text-white"
+            } uppercase`}
           >
             {item.title}
           </a>
