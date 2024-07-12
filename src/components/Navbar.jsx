@@ -4,59 +4,13 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 
 function Navbar() {
-  const pathname = useLocation();
+  const { hash } = useLocation(); // Destructure hash from useLocation
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-  {
-    /* Menu Button */
-  }
-  <div className="fixed top-[20%] inset-y-0 right-[5%] z-[100] lg:hidden">
-    <button
-      onClick={toggleMenu}
-      type="button"
-      className="inline-flex transition-all font-bold hover:border border-black duration-500 items-center justify-center p-2 rounded-full text-coral-red hover:text-black hover:bg-red-500"
-      aria-controls="mobile-menu"
-      aria-expanded="false"
-    >
-      <span className="sr-only">Open main menu</span>
-      {!isOpen ? (
-        <svg
-          className="block h-6 w-6 font-bold"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M4 6h16M4 12h16m-7 6h7"
-          />
-        </svg>
-      ) : (
-        <svg
-          className="block h-6 w-6"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      )}
-    </button>
-  </div>;
+
   return (
     <div className='fixed backdrop-blur-lg hover:backdrop-blur-xl z-[999] w-full px-10 lg:px-20 py-8 gap-10 font-["Neue Montreal"] flex justify-between items-center'>
       <div className="logo">
@@ -89,46 +43,81 @@ function Navbar() {
           ></path>
         </svg>
       </div>
+
       <div className="links md:flex gap-10 flex-wrap hidden">
         {header.map((item, index) => (
           <a
             key={item.id}
             href={item.url}
             className={`sm:text-xl text-base ${
-              item.title == pathname.hash ? "z-2 text-purple-500" : "text-white"
-            } capitalize font-light ${
-              index === 4 && "ml-25"
-            }`}
-          >
-            {item.title}
-          </a>
-        ))}
-      </div>
-      <div className="bg-orange-400/90 w-full min-h-screen absolute top-0 left-0 -z-[999] flex flex-col py-10 hidden justify-evenly items-center gap-5 font-semibold lg:font-lg backdrop-blur-xl text-3xl lg:text-xl tracking-widest">
-        {header.map((item) => (
-          <a
-          id="menuItemsBar"
-            key={item.id}
-            href={item.url}
-            className={`${
-              item.title == pathname.hash ? "z-2 text-purple-500" : "text-white"
-            } uppercase`}
+              item.title === hash ? "z-2 text-purple-500" : "text-white"
+            } capitalize font-light ${index === 4 && "ml-25"}`}
           >
             {item.title}
           </a>
         ))}
       </div>
 
+      {/* Menu Button */}
+      <div className="fixed top-[20%] inset-y-0 right-[5%] z-[100] lg:hidden">
+        <button
+          onClick={toggleMenu}
+          type="button"
+          className="inline-flex transition-all font-bold hover:border border-black duration-500 items-center justify-center p-2 rounded-full text-coral-red hover:text-black hover:bg-rose-700"
+          aria-controls="mobile-menu"
+          aria-expanded={isOpen}
+        >
+          <span className="sr-only">Open main menu</span>
+          {!isOpen ? (
+            <svg
+              className="block h-6 w-6 font-bold"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          ) : (
+            <svg
+              className="block h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          )}
+        </button>
+      </div>
+
       {/* Mobile Menu */}
-      <div className={`${isOpen ? 'flex' : 'hidden'} flex-1 lg:hidden top-0 transition-all z-40 max-lg:pt-10 left-0 flex-col items-center justify- max-lg:min-h-screen max-lg:w-full max-lg:absolute gap-5 font-semibold lg:font-lg backdrop-blur-xl text-3xl lg:text-xl tracking-widest bg-orange-400/90`}>
+      <div
+        className={`${
+          isOpen ? "flex" : "hidden"
+        } flex-1 lg:hidden top-0 transition-all z-40 max-lg:pt-10 left-0 flex-col items-center justify-evenly max-lg:min-h-screen max-lg:w-full max-lg:absolute gap-5 font-light lg:font-lg backdrop-blur-xl text-3xl lg:text-xl tracking-widest bg-black/70`}
+      >
         {header.map((item) => (
           <a
-          id="menuItemsBar"
+            id="menuItemsBar"
             key={item.id}
             href={item.url}
             className={`${
-              item.title == pathname.hash ? "z-2 text-purple-500" : "text-white"
-            } uppercase`}
+              item.title === hash ? "z-2 text-purple-500" : "text-white"
+            }`}
           >
             {item.title}
           </a>
