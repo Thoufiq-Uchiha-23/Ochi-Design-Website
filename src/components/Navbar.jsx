@@ -2,6 +2,7 @@ import React from "react";
 import { header } from "../constants/index";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import { FaArrowUp } from "react-icons/fa";
 
 function Navbar() {
   const { hash } = useLocation(); // Destructure hash from useLocation
@@ -12,7 +13,7 @@ function Navbar() {
   };
 
   return (
-    <div className='fixed backdrop-blur-lg hover:backdrop-blur-xl z-[999] w-full px-10 lg:px-20 py-8 gap-10 font-["Neue Montreal"] flex justify-between items-center'>
+    <div className='fixed backdrop-blur-lg hover:backdrop-blur-xl z-[100] w-full px-10 lg:px-20 py-8 gap-10 font-["Neue Montreal"] flex justify-between items-center'>
       <div className="logo">
         <svg
           width="72"
@@ -59,7 +60,7 @@ function Navbar() {
       </div>
 
       {/* Menu Button */}
-      <div className="fixed top-[20%] inset-y-0 right-[5%] z-[100] lg:hidden">
+      <div className="fixed top-[20%] inset-y-0 right-[5%] z-[100] md:hidden">
         <button
           onClick={toggleMenu}
           type="button"
@@ -123,6 +124,13 @@ function Navbar() {
           </a>
         ))}
       </div>
+
+      <a
+        href="#services"
+        className="fixed -bottom-[490%] right-[7%] lg:hidden border border-black bg-lime-400 p-3 text-black z-[999] rounded-full"
+      >
+        <FaArrowUp />
+      </a>
     </div>
   );
 }
